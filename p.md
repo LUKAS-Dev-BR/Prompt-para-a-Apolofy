@@ -1,261 +1,204 @@
-Você é um engenheiro de software sênior, arquiteto de APIs, especialista em TypeScript/Node.js, bancos de dados, sistemas de scraping/crawling, agregação de providers, sistemas de metadata e arquiteturas de APIs multimídia.
+Você é uma IA/LLM especializada em engenharia de software, arquitetura de APIs, TypeScript, Node.js/Bun, scraping/crawling, sistemas de metadata, media catalogs, providers, mappings, bancos de dados, players de vídeo web e integração de APIs com sites de terceiros.
 
-Sua tarefa é criar a Apolofy.
+Sua missão é transformar o projeto Anify que JÁ ESTÁ CLONADO NO DIRETÓRIO ATUAL em uma nova API chamada:
 
-==================================================
-1. OBJETIVO PRINCIPAL
-==================================================
+APOLOFY API
 
-Crie uma API chamada:
+============================================================
+1. REGRA ABSOLUTA: USE O DIRETÓRIO ATUAL
+============================================================
 
-Apolofy
+NÃO clone o Anify novamente.
 
-A apolofy será um fork/derivative project baseado no repositório oficial do Anify:
+NÃO crie outro projeto em uma pasta diferente.
 
-Eltik/Anify
+O repositório oficial do Anify já está configurado/clonado no diretório atual.
 
-O repositório oficial do Anify deve ser utilizado como arquitetura principal/base do projeto.
+Primeiro execute comandos equivalentes a:
 
-IMPORTANTE:
+pwd
+ls -la
+find . -maxdepth 2 -type f
+git status
+git remote -v
 
-NÃO recrie do zero aquilo que já existe no Anify.
+Identifique exatamente onde está o repositório Anify.
 
-Primeiro clone/fork o repositório oficial do Anify e analise profundamente:
+Depois trabalhe diretamente nesse projeto.
 
-- estrutura de diretórios
-- backend
-- frontend, se necessário
-- providers
-- mappings
-- crawlers
-- scrapers
-- database
-- cache
-- rotas
-- models
-- services
-- configurações
-- sistema de episódios
-- sistema de anime
-- sistema de mangá
-- sistema de light novels
-- sistema de sources
-- sistema de metadata
+Antes de modificar qualquer código:
 
-Depois faça uma extensão arquitetural do projeto para transformá-lo na apolofy.
+1. examine a estrutura;
+2. examine o git status;
+3. examine package.json;
+4. examine os README.md;
+5. examine anify-backend;
+6. examine anify-backend/src;
+7. examine os providers;
+8. examine os mappings;
+9. examine os crawlers;
+10. examine os scrapers;
+11. examine as rotas;
+12. examine o sistema de episódios;
+13. examine o sistema de sources;
+14. examine o sistema de metadata;
+15. examine o banco de dados;
+16. examine o Redis/cache;
+17. examine os scripts Bun;
+18. execute o projeto quando possível;
+19. execute os testes/lint/build existentes.
 
-A regra principal é:
+NÃO faça alterações grandes antes de entender a arquitetura existente.
 
-ANIFY CORE
+============================================================
+2. OBJETIVO DA APOLOFY
+============================================================
+
+Transforme:
+
+ANIFY
 +
-APOLOFY EXTENSIONS
+EXTENSÕES APOLOFY
 =
-apolofy
+APOLOFY API
 
-==================================================
-2. PRESERVAR FUNCIONALIDADES DO ANIFY
-==================================================
-
-NÃO remova as funcionalidades existentes do Anify.
-
-A Apolofy deve continuar suportando:
+A Apolofy deve preservar as funcionalidades existentes do Anify e adicionar suporte para:
 
 - Anime
 - Mangá
-- Light Novels
-- Anime metadata
-- Mangá metadata
-- Light Novel metadata
-- Anime mappings
-- Mangá mappings
-- Light Novel mappings
+- Light Novel
+- Filmes
+- Séries de TV
+- Temporadas
+- Episódios
+- Filmes relacionados
+- Coleções
+- Franquias
+- Metadata
+- Capas
+- Banners
+- Classificações etárias
+- Mappings
 - Providers
-- Crawlers
-- Scrapers
-- Database
-- Cache
+- Sources autorizadas
 - Search
-- Recent
 - Schedule
-- Info
-- Sources
-- Sistema de episódios
-- Sistema de capítulos
-- Sistemas internos de mapping
+- Recent
+- Player de vídeo
+- Player de vídeo incorporável
+- API para integração com sites externos
 
-Preserve a compatibilidade existente sempre que tecnicamente possível.
+============================================================
+3. NÃO REMOVER O SISTEMA DE ANIME
+============================================================
 
-Se alguma alteração for necessária, crie uma camada de compatibilidade em vez de simplesmente quebrar os endpoints existentes.
+IMPORTANTE:
 
-==================================================
-3. NOVOS TIPOS DE CONTEÚDO
-==================================================
+NÃO remova a coleta existente de anime do Anify.
 
-A grande expansão da Apolofy será adicionar suporte completo para:
+NÃO substitua os providers existentes sem necessidade.
 
-1. Movies
-2. TV Series
-3. Seasons
-4. Episodes
-5. Movie Collections
-6. Franchises
-7. Movie/TV metadata
-8. Movie/TV mappings
-9. Movie/TV providers
-10. Movie/TV sources
-11. Movie/TV search
+NÃO remova o sistema de episódios existente.
 
-A Apolofy deverá funcionar como um catálogo multimídia unificado.
+NÃO remova mappings existentes.
 
-==================================================
-4. ARQUITETURA
-==================================================
+NÃO remova metadata existente.
 
-Utilize uma arquitetura modular.
+NÃO remova o sistema de sources existente.
 
-Estrutura conceitual:
+A Apolofy deve preservar e expandir a funcionalidade existente.
 
-apolofy/
-│
-├── core/
-│   ├── anime/
-│   ├── manga/
-│   ├── light-novel/
-│   ├── mappings/
-│   ├── providers/
-│   ├── crawlers/
-│   ├── scrapers/
-│   ├── metadata/
-│   ├── database/
-│   └── cache/
-│
-├── movies/
-│   ├── controllers/
-│   ├── services/
-│   ├── models/
-│   ├── providers/
-│   ├── mappings/
-│   ├── metadata/
-│   └── sources/
-│
-├── tv/
-│   ├── controllers/
-│   ├── services/
-│   ├── models/
-│   ├── seasons/
-│   ├── episodes/
-│   ├── providers/
-│   ├── mappings/
-│   ├── metadata/
-│   └── sources/
-│
-├── search/
-├── sources/
-├── providers/
-├── mappings/
-├── metadata/
-├── database/
-├── cache/
-├── api/
-├── config/
-├── tests/
-└── docs/
+============================================================
+4. ESTUDAR O ANIFY ANTES DE IMPLEMENTAR SOURCES
+============================================================
 
-ADAPTE essa estrutura à arquitetura real existente no Anify.
+Antes de implementar o sistema de fontes da Apolofy, faça uma auditoria específica do código real do Anify.
 
-Não destrua a organização original sem necessidade.
+Estude:
 
-==================================================
-5. CATÁLOGO DE ANIME
-==================================================
+- providers;
+- base providers;
+- mapping providers;
+- episode providers;
+- source resolvers;
+- rotas relacionadas a mídia;
+- rotas relacionadas a episódios;
+- metadata providers;
+- crawlers;
+- filas;
+- cache;
+- banco de dados;
+- processamento de URLs;
+- subtitles;
+- formatos de vídeo;
+- HLS;
+- DASH, quando existente;
+- tratamento de erros;
+- fallback entre providers.
 
-Preserve o sistema de anime existente.
+O Anify explica oficialmente que o backend utiliza mappings próprios, obtém informações dos providers e armazena os mappings no banco de dados. Também possui crawling e criação de mappings durante buscas e carregamento sazonal.
 
-A Apolofy deve continuar podendo:
+Use essa arquitetura como referência.
 
-- pesquisar anime
-- obter informações de anime
-- obter temporadas
-- obter episódios
-- obter metadata
-- obter mappings
-- localizar providers
-- localizar sources autorizadas
-- consultar episódios
-- consultar informações de lançamento
+NÃO copie mecanismos destinados a:
 
-A estrutura deve permitir:
+- contornar DRM;
+- quebrar paywalls;
+- roubar credenciais;
+- contornar autenticação;
+- burlar controles de acesso;
+- evadir proteções de provedores.
 
-Anime
- ├── Season 1
- │   ├── Episode 1
- │   ├── Episode 2
- │   └── ...
- ├── Season 2
- └── ...
+Para a Apolofy, implemente resolução de sources apenas para fontes que possam ser acessadas legalmente/autorizadamente.
 
-Também suporte:
+============================================================
+5. SISTEMA DE PROVIDERS
+============================================================
 
-- especiais
-- OVAs
-- ONAs
-- filmes relacionados
-- episódios especiais
+Crie uma arquitetura unificada:
 
-==================================================
-6. CATÁLOGO DE MANGÁ
-==================================================
+ProviderManager
 
-Preserve completamente o sistema de mangá existente.
+    ├── Anime Providers
+    ├── Manga Providers
+    ├── Light Novel Providers
+    ├── Movie Providers
+    └── TV Providers
 
-Suporte:
+Cada provider deve possuir uma interface consistente.
 
-- pesquisa
-- metadata
-- capítulos
-- mappings
-- providers
-- fontes permitidas
-- autores
-- artistas
-- gêneros
-- tags
-- status
-- datas
-- volumes
+Conceitualmente:
 
-==================================================
-7. LIGHT NOVELS
-==================================================
+Provider
+    ├── search()
+    ├── getInfo()
+    ├── getMetadata()
+    ├── getSeasons()
+    ├── getEpisodes()
+    ├── getSources()
+    └── getArtwork()
 
-Preserve o sistema existente de Light Novels.
+Adapte isso à arquitetura REAL do Anify.
 
-Suporte:
+NÃO invente uma arquitetura paralela se o Anify já possuir abstrações equivalentes.
 
-- pesquisa
-- metadata
-- mappings
-- volumes
-- capítulos quando disponíveis
-- autores
-- ilustradores
-- gêneros
-- tags
-- status
+============================================================
+6. FILMES
+============================================================
 
-==================================================
-8. MOVIES
-==================================================
+Adicionar suporte completo para filmes.
 
-Adicione suporte completo para filmes.
-
-Endpoints conceituais:
+Endpoints:
 
 GET /movie/:id
 
-GET /movie/:id/sources
+GET /movie/:id/metadata
+
+GET /movie/:id/mappings
 
 GET /movie/:id/providers
+
+GET /movie/:id/sources
 
 GET /movie/:id/recommendations
 
@@ -263,195 +206,411 @@ GET /movie/:id/similar
 
 GET /movie/:id/collection
 
-GET /movie/:id/metadata
+GET /movie/:id/artwork
 
-GET /movie/:id/mappings
+Os dados devem incluir, quando disponíveis:
 
-A informação de um filme deve poder incluir:
+- ID;
+- título;
+- título original;
+- títulos alternativos;
+- sinopse;
+- gêneros;
+- tags;
+- ano;
+- data de lançamento;
+- duração;
+- idioma;
+- países;
+- classificação etária;
+- elenco;
+- diretores;
+- roteiristas;
+- produtores;
+- estúdios;
+- avaliações;
+- popularidade;
+- poster/capa;
+- backdrop/banner;
+- imagens adicionais;
+- trailers;
+- IDs externos;
+- collection;
+- franchise;
+- providers;
+- sources autorizadas.
 
-- id
-- título
-- título original
-- títulos alternativos
-- sinopse
-- gêneros
-- tags
-- ano
-- data de lançamento
-- duração
-- classificação
-- idioma
-- países
-- elenco
-- diretores
-- roteiristas
-- produtores
-- estúdios
-- pôster
-- backdrop
-- imagens
-- trailers
-- vídeos promocionais
-- avaliações
-- popularidade
-- IDs externos
-- providers
-- sources autorizadas
-- coleção
-- franquia
-- filmes relacionados
+============================================================
+7. SÉRIES DE TV
+============================================================
 
-==================================================
-9. TV SERIES
-==================================================
-
-Adicione suporte completo para séries de televisão.
+Adicionar suporte completo para séries.
 
 Endpoints:
 
 GET /tv/:id
 
-GET /tv/:id/seasons
-
-GET /tv/:id/season/:season
-
-GET /tv/:id/season/:season/episodes
-
-GET /tv/:id/episode/:episode
-
-GET /tv/:id/episode/:episode/sources
-
-GET /tv/:id/providers
-
 GET /tv/:id/metadata
 
 GET /tv/:id/mappings
 
-Uma série deverá possuir:
+GET /tv/:id/providers
 
-- metadata
-- temporadas
-- episódios
-- especiais
-- providers
-- mappings
-- sources autorizadas
+GET /tv/:id/seasons
 
-==================================================
-10. TEMPORADAS
-==================================================
+GET /tv/:id/artwork
 
-A Apolofy deve coletar/catalogar todas as temporadas disponíveis para uma série ou anime.
+GET /tv/:id/age-rating
 
-Exemplo:
+A estrutura deve ser:
 
 TV Series
- ├── Season 1
- ├── Season 2
- ├── Season 3
- ├── Season 4
- └── ...
+    ├── Season 1
+    │   ├── Episode 1
+    │   ├── Episode 2
+    │   ├── Episode 3
+    │   └── ...
+    ├── Season 2
+    │   ├── Episode 1
+    │   └── ...
+    └── Season N
 
-Anime
- ├── Season 1
- ├── Season 2
- ├── Season 3
- └── ...
+============================================================
+8. TODAS AS TEMPORADAS
+============================================================
 
-Cada temporada deve possuir:
-
-- id
-- número
-- nome
-- descrição
-- data de estreia
-- data de encerramento
-- poster
-- backdrop
-- número de episódios
-- episódios
-- metadata
-- IDs externos
-
-==================================================
-11. EPISÓDIOS
-==================================================
-
-A Apolofy deve catalogar todos os episódios disponíveis de cada temporada.
-
-Exemplo:
-
-Season 1
- ├── Episode 1
- ├── Episode 2
- ├── Episode 3
- ├── Episode 4
- └── ...
-
-Cada episódio poderá possuir:
-
-- id
-- número
-- título
-- título original
-- descrição
-- duração
-- data de lançamento
-- imagem
-- thumbnail
-- temporada
-- série
-- anime
-- IDs externos
-- providers
-- sources autorizadas
+A Apolofy deve possuir uma arquitetura capaz de catalogar todas as temporadas disponíveis de cada série.
 
 Endpoint:
 
+GET /tv/:id/seasons
+
+Cada temporada deve possuir:
+
+- ID;
+- número;
+- nome;
+- descrição;
+- poster;
+- banner/backdrop;
+- data de início;
+- data final;
+- quantidade de episódios;
+- metadata;
+- IDs externos.
+
+============================================================
+9. TODOS OS EPISÓDIOS
+============================================================
+
+Para cada temporada, catalogue os episódios disponíveis.
+
+Endpoint:
+
+GET /tv/:id/season/:season
+
+ou:
+
+GET /tv/:id/season/:season/episodes
+
+Endpoint individual:
+
 GET /tv/:id/season/:season/episode/:episode
 
-e equivalente para anime:
+Cada episódio deve possuir:
 
-GET /anime/:id/season/:season/episode/:episode
+- ID;
+- número;
+- título;
+- título original;
+- descrição;
+- duração;
+- data de lançamento;
+- thumbnail;
+- imagens;
+- classificação etária, quando disponível;
+- temporada;
+- série;
+- IDs externos;
+- providers;
+- sources autorizadas.
 
-==================================================
-12. FILMES E FRANQUIAS
-==================================================
+============================================================
+10. ANIME — TEMPORADAS E EPISÓDIOS
+============================================================
 
-Filmes não devem ser tratados como temporadas.
+NÃO remova o sistema existente do Anify.
 
-Utilize:
+Expanda-o para que a Apolofy consiga catalogar:
 
+Anime
+    ├── Season 1
+    │   ├── Episode 1
+    │   ├── Episode 2
+    │   └── ...
+    ├── Season 2
+    └── ...
+
+Quando os dados estiverem disponíveis, catalogue:
+
+- todas as temporadas;
+- todos os episódios;
+- episódios especiais;
+- OVAs;
+- ONAs;
+- filmes relacionados;
+- metadata;
+- classificação etária;
+- capas;
+- banners;
+- providers;
+- sources autorizadas.
+
+Utilize o sistema de mappings do Anify para relacionar IDs entre providers.
+
+============================================================
+11. COLEÇÃO DE LINKS/SOURCES
+============================================================
+
+A Apolofy deve possuir um sistema:
+
+SourceResolver
+
+com suporte conceitual para:
+
+    Anime
+    Movie
+    TV
+
+Exemplos:
+
+GET /anime/:id/episode/:episode/sources
+
+GET /movie/:id/sources
+
+GET /tv/:id/season/:season/episode/:episode/sources
+
+A arquitetura deve seguir o padrão encontrado no Anify:
+
+1. identificar a obra;
+2. identificar o provider;
+3. localizar a obra/episódio;
+4. resolver a fonte disponível;
+5. normalizar a resposta;
+6. retornar as fontes ao cliente;
+7. utilizar cache apropriado;
+8. aplicar timeout/retry;
+9. fazer fallback para outro provider autorizado quando necessário.
+
+NÃO implemente bypass de DRM ou mecanismos para violar controles de acesso.
+
+============================================================
+12. FORMATO UNIFICADO DE SOURCES
+============================================================
+
+Normalize as fontes em um formato comum:
+
+{
+  "sources": [
+    {
+      "id": "source-id",
+      "provider": "provider-name",
+      "type": "hls",
+      "url": "https://...",
+      "quality": "1080p",
+      "language": "pt-BR",
+      "audio": "original",
+      "subtitles": [],
+      "headers": {},
+      "expiresAt": null
+    }
+  ]
+}
+
+Suporte, quando legitimamente fornecido:
+
+- HLS;
+- DASH;
+- MP4;
+- outros formatos suportados pelo player.
+
+============================================================
+13. CAPAS DE TODOS OS CONTEÚDOS
+============================================================
+
+A Apolofy deve coletar/normalizar artwork de:
+
+- filmes;
+- séries;
+- anime.
+
+Incluindo:
+
+- poster;
+- cover;
+- thumbnail;
+- backdrop;
+- banner;
+- logos;
+- imagens promocionais, quando disponíveis.
+
+Crie:
+
+ArtworkService
+
+Exemplo:
+
+GET /movie/:id/artwork
+
+GET /tv/:id/artwork
+
+GET /anime/:id/artwork
+
+O serviço deve normalizar diferentes formatos de providers.
+
+Não duplique imagens desnecessariamente.
+
+Utilize cache.
+
+============================================================
+14. BANNERS
+============================================================
+
+A Apolofy deve coletar banners/backdrops de:
+
+- filmes;
+- séries;
+- anime.
+
+Exemplo:
+
+{
+  "poster": "...",
+  "backdrop": "...",
+  "banner": "...",
+  "logo": "..."
+}
+
+Quando determinado provider não possuir banner, tente outro provider de metadata autorizado.
+
+Não invente URLs.
+
+============================================================
+15. CLASSIFICAÇÃO ETÁRIA
+============================================================
+
+A Apolofy deve coletar classificações etárias de:
+
+- filmes;
+- séries;
+- anime.
+
+Exemplos conceituais:
+
+- Livre;
+- 10;
+- 12;
+- 14;
+- 16;
+- 18;
+- TV-Y;
+- TV-PG;
+- TV-14;
+- TV-MA;
+- ou equivalentes conforme o país.
+
+Não converta classificações de forma incorreta.
+
+Armazene:
+
+{
+  "rating": "16",
+  "system": "BR",
+  "country": "BR"
+}
+
+Quando houver múltiplos países:
+
+{
+  "ratings": [
+    {
+      "country": "BR",
+      "system": "...",
+      "rating": "16"
+    },
+    {
+      "country": "US",
+      "system": "...",
+      "rating": "TV-14"
+    }
+  ]
+}
+
+============================================================
+16. METADATA ENGINE
+============================================================
+
+Crie um Metadata Engine unificado.
+
+Suporte:
+
+AnimeMetadata
+MangaMetadata
+LightNovelMetadata
+MovieMetadata
+TVMetadata
+SeasonMetadata
+EpisodeMetadata
+
+O Metadata Engine deve normalizar:
+
+- títulos;
+- sinopse;
+- gêneros;
+- tags;
+- elenco;
+- equipe;
+- datas;
+- duração;
+- ratings;
+- artwork;
+- relações;
+- IDs externos.
+
+============================================================
+17. MAPPING ENGINE
+============================================================
+
+Preserve o Mapping Engine do Anify.
+
+Expanda-o para:
+
+Anime
 Movie
- └── Collection
-      ├── Movie 1
-      ├── Movie 2
-      ├── Movie 3
-      └── Movie 4
+TV
+Manga
+Light Novel
 
-Endpoints:
+Utilize IDs externos quando disponíveis.
 
-GET /movie/:id/collection
+Exemplo:
 
-GET /collection/:id
+{
+  "apolofyId": "movie-123",
+  "externalIds": {
+    "tmdb": "123",
+    "imdb": "tt1234567",
+    "tvdb": "12345"
+  }
+}
 
-GET /collection/:id/movies
+O sistema deve impedir duplicação de títulos.
 
-Suporte também a:
+============================================================
+18. SEARCH
+============================================================
 
-- franquias
-- sequências
-- prequels
-- spin-offs
-- filmes relacionados
-
-==================================================
-13. SEARCH
-==================================================
-
-Crie um sistema de pesquisa unificado.
-
-Endpoints:
+Criar busca global:
 
 GET /search
 
@@ -467,188 +626,404 @@ GET /search/movie
 
 GET /search/tv
 
-Pesquisa básica:
-
-GET /search?query=...
-
 Parâmetros:
 
-- query
-- page
-- perPage
-- type
-- year
-- genre
-- genres
-- tags
-- language
-- country
-- sort
-- order
+query
+page
+perPage
+type
+year
+genre
+genres
+tags
+sort
+order
+language
+country
 
-O sistema deverá permitir busca:
+A pesquisa global deve poder retornar:
 
-- global
-- por tipo
-- avançada
-- filtrada
-- paginada
+Anime
+Movie
+TV
+Manga
+Light Novel
 
-==================================================
-14. SISTEMA DE MAPPINGS
-==================================================
+============================================================
+19. PLAYER DE VÍDEO APOLOFY
+============================================================
 
-Crie/expanda o Mapping Engine.
+ESTA É UMA FUNCIONALIDADE PRINCIPAL.
 
-Ele deve relacionar uma obra da Apolofy com IDs externos e IDs dos providers.
+A Apolofy deve possuir seu próprio PLAYER DE VÍDEO.
 
-Exemplo:
+O player deve ser inspirado VISUALMENTE NA IMAGEM DE REFERÊNCIA FORNECIDA PELO USUÁRIO.
 
-{
-  "apolofyId": "movie-123",
-  "externalIds": {
-    "tmdb": "123",
-    "imdb": "tt1234567",
-    "tvdb": "12345"
-  }
-}
+A imagem mostra um player:
 
-Para anime, preserve os mappings existentes.
+- dark;
+- moderno;
+- minimalista;
+- cinematográfico;
+- responsivo;
+- com painel superior;
+- área de vídeo grande;
+- controles inferiores;
+- aparência premium.
 
-Para filmes e séries, adicione mappings compatíveis com fontes/metadados que possam ser usados legalmente.
+NÃO faça apenas um elemento HTML:
 
-O sistema deve evitar duplicação de obras.
+<video>
 
-==================================================
-15. PROVIDER SYSTEM
-==================================================
+Crie um componente de player completo.
 
-Crie uma arquitetura modular de providers.
+============================================================
+20. DESIGN DO PLAYER
+============================================================
 
-Exemplo:
+O player deve possuir visual equivalente ao layout da imagem fornecida.
 
-ProviderManager
-│
-├── Anime Providers
-├── Manga Providers
-├── Light Novel Providers
-├── Movie Providers
-└── TV Providers
+Na parte superior:
 
-Cada provider deve implementar uma interface comum.
+[←] Nome do Filme / Série / Anime
+
+Temporada 1 • Episódio 1
+
+No lado direito:
+
+[Cast]
+[Settings]
+[More]
+
+Área central:
+
+Imagem/poster/backdrop do conteúdo
+
+Botão:
+
+▶
+
+No rodapé da área de vídeo:
+
+tempo atual / duração
+
+barra de progresso
+
+Na barra inferior:
+
+Pause/Play
+
+Retroceder 10 segundos
+
+Avançar 10 segundos
+
+Volume
+
+No lado direito:
+
+HD
+
+Seletor de qualidade:
+
+1080p
+720p
+480p
+360p
+
+Botão de legendas
+
+Fullscreen
+
+============================================================
+21. PLAYER RESPONSIVO
+============================================================
+
+O player deve funcionar em:
+
+- Desktop;
+- Notebook;
+- Tablet;
+- Smartphone;
+- Smart TV quando possível.
+
+No celular:
+
+- controles devem se adaptar;
+- botões devem continuar acessíveis;
+- fullscreen deve funcionar;
+- orientação landscape deve ser suportada;
+- interface não pode ficar cortada.
+
+============================================================
+22. FUNCIONALIDADES DO PLAYER
+============================================================
+
+Implementar:
+
+- play/pause;
+- seek;
+- barra de progresso;
+- volume;
+- mute;
+- fullscreen;
+- picture-in-picture quando suportado;
+- seleção de qualidade;
+- seleção de áudio quando disponível;
+- seleção de legenda;
+- sincronização de legenda;
+- avanço de 10 segundos;
+- retrocesso de 10 segundos;
+- indicador de carregamento;
+- tratamento de erro;
+- retry;
+- troca de source;
+- troca automática de source quando configurado;
+- resume playback;
+- remember position;
+- keyboard shortcuts no desktop;
+- touch gestures no mobile quando apropriado;
+- Cast quando suportado pelo navegador/dispositivo.
+
+============================================================
+23. PLAYER COMO COMPONENTE REUTILIZÁVEL
+============================================================
+
+O player NÃO deve existir somente dentro da própria Apolofy.
+
+Ele deve ser construído como componente reutilizável.
+
+Crie uma arquitetura:
+
+ApolofyPlayer
+
+e permita integração em sites externos.
+
+O objetivo é:
+
+Um usuário possui seu próprio site.
+
+Ele configura a Apolofy API no site.
+
+A Apolofy fornece os dados de filmes/séries/animes.
+
+Quando o visitante clicar em assistir:
+
+O site do usuário abre o ApolofyPlayer.
+
+============================================================
+24. FORMAS DE INTEGRAÇÃO
+============================================================
+
+A Apolofy deve fornecer pelo menos duas formas de integração.
+
+FORMA 1 — IFRAME
 
 Exemplo conceitual:
 
-interface Provider {
-    search()
-    getInfo()
-    getMetadata()
-    getEpisodes()
-    getSources()
-}
+<iframe
+  src="https://api.exemplo.com/player/..."
+  width="100%"
+  height="600"
+  allow="fullscreen; picture-in-picture; autoplay"
+  allowfullscreen>
+</iframe>
 
-Adapte a interface à implementação real do Anify.
+A URL deve receber um identificador seguro da mídia/episódio e, quando necessário, uma referência de source.
 
-Providers devem ser plugáveis.
+FORMA 2 — COMPONENTE JAVASCRIPT/REACT
 
-Um provider com erro não deve derrubar toda a API.
+Criar um pacote:
 
-Implemente:
+@apolofy/player
 
-- timeout
-- retry
-- circuit breaker quando apropriado
-- health status
-- logging
-- rate limiting
-- cache
+Uso conceitual:
 
-==================================================
-16. SOURCE SYSTEM
-==================================================
+<ApolofyPlayer
+    source="..."
+    title="Nome do Filme"
+    poster="..."
+    season={1}
+    episode={1}
+/>
 
-Crie um SourceResolver unificado.
+Adapte a implementação ao stack real do projeto.
 
-Arquitetura:
+============================================================
+25. API DO PLAYER
+============================================================
 
-SourceResolver
-│
-├── Anime
-├── Movie
-└── TV
-
-O sistema deve poder retornar fontes de reprodução SOMENTE quando forem legalmente acessíveis/autorizadas.
+Crie endpoints próprios para integração.
 
 Exemplo:
 
-GET /anime/{id}/episode/{episode}/sources
+GET /player/:id
 
-GET /movie/{id}/sources
+GET /player/:type/:id
 
-GET /tv/{id}/season/{season}/episode/{episode}/sources
+GET /player/anime/:id/episode/:episode
 
-Formato conceitual:
+GET /player/tv/:id/season/:season/episode/:episode
+
+GET /player/movie/:id
+
+Também pode existir:
+
+GET /player/config/:id
+
+para retornar a configuração necessária ao player.
+
+============================================================
+26. PLAYER + SOURCES
+============================================================
+
+Fluxo:
+
+SITE DO USUÁRIO
+        ↓
+APOLOFY API
+        ↓
+IDENTIFICA MÍDIA
+        ↓
+IDENTIFICA EPISÓDIO
+        ↓
+MAPPING
+        ↓
+PROVIDER
+        ↓
+SOURCE RESOLVER
+        ↓
+SOURCE AUTORIZADA
+        ↓
+APOLOFY PLAYER
+        ↓
+REPRODUÇÃO
+
+O player nunca deve precisar conhecer a lógica interna dos providers.
+
+O player recebe uma resposta normalizada.
+
+============================================================
+27. RESPOSTA PARA O PLAYER
+============================================================
+
+Exemplo:
 
 {
+  "media": {
+    "id": "123",
+    "type": "tv",
+    "title": "Example Series",
+    "season": 1,
+    "episode": 1
+  },
+
+  "artwork": {
+    "poster": "...",
+    "backdrop": "...",
+    "banner": "..."
+  },
+
+  "rating": {
+    "country": "BR",
+    "rating": "14"
+  },
+
   "sources": [
     {
-      "provider": "provider-a",
+      "provider": "authorized-provider",
       "type": "hls",
       "url": "...",
       "quality": "1080p",
+      "language": "pt-BR"
+    }
+  ],
+
+  "subtitles": [
+    {
       "language": "pt-BR",
-      "subtitles": [],
-      "isAuthorized": true
+      "url": "..."
     }
   ]
 }
 
-NÃO implemente:
+============================================================
+28. EPISÓDIO AUTOMÁTICO
+============================================================
 
-- bypass de DRM
-- quebra de paywall
-- contorno de autenticação
-- evasão de controles de acesso
-- obtenção ilícita de conteúdo protegido
+Quando estiver assistindo uma série/anime:
 
-==================================================
-17. METADATA ENGINE
-==================================================
+O player deve saber:
 
-Crie um Metadata Engine unificado.
+- série/anime;
+- temporada;
+- episódio atual;
+- próximo episódio;
+- episódio anterior.
 
-Tipos:
+Quando o episódio terminar, o player poderá oferecer:
 
-- AnimeMetadata
-- MangaMetadata
-- LightNovelMetadata
-- MovieMetadata
-- TVMetadata
-- SeasonMetadata
-- EpisodeMetadata
+"Próximo episódio"
 
-O sistema deve normalizar dados vindos de diferentes providers.
+E:
 
-Evite que cada provider tenha um formato incompatível.
+"Próximo episódio em 5... 4... 3..."
 
-Crie modelos internos normalizados.
+O comportamento deve ser configurável.
 
-==================================================
-18. DATABASE
-==================================================
+============================================================
+29. PLAYER SEM DADOS FIXOS
+============================================================
 
-Crie/expanda o banco mantendo compatibilidade com o projeto original.
+NÃO coloque:
 
-Estrutura lógica mínima:
+- títulos fixos;
+- posters fixos;
+- URLs fixas;
+- episódios fixos.
 
-anime
-anime_episodes
+Tudo deve vir da API.
 
-manga
-manga_chapters
+O mesmo player deve conseguir reproduzir:
 
-light_novels
-light_novel_volumes
+Filme A
+
+Série B
+Season 3
+Episode 7
+
+Anime C
+Season 2
+Episode 12
+
+sem modificar o código do player.
+
+============================================================
+30. TECNOLOGIA DO PLAYER
+============================================================
+
+Escolha uma tecnologia moderna compatível com:
+
+- React;
+- TypeScript;
+- HLS;
+- DASH quando necessário;
+- HTML5 Video.
+
+Pode utilizar uma biblioteca madura de player caso seja compatível com a arquitetura do projeto.
+
+Porém:
+
+A aparência final deve ser CUSTOMIZADA para ficar visualmente equivalente à imagem de referência.
+
+Não entregue simplesmente o player padrão da biblioteca.
+
+============================================================
+31. BANCO DE DADOS
+============================================================
+
+Preserve o banco existente do Anify.
+
+Expanda com entidades equivalentes a:
 
 movies
 movie_collections
@@ -657,203 +1032,206 @@ tv_series
 tv_seasons
 tv_episodes
 
+anime
+anime_seasons
+anime_episodes
+
+manga
+manga_chapters
+
+light_novels
+light_novel_volumes
+
 mappings
 providers
 sources
 metadata
+artwork
+age_ratings
 cache
 
-Adicione:
+Adapte aos models reais existentes.
 
-- índices
-- foreign keys
-- constraints
-- unique constraints
-- migrations
-- timestamps
-- soft delete quando apropriado
+Não crie duplicações desnecessárias.
 
-Evite duplicação de dados.
+============================================================
+32. CACHE
+============================================================
 
-==================================================
-19. CACHE
-==================================================
+Utilize Redis/cache para:
 
-Implemente cache para:
+- metadata;
+- search;
+- mappings;
+- seasons;
+- episodes;
+- artwork;
+- ratings;
+- provider responses;
+- source responses.
 
-- search
-- metadata
-- mappings
-- provider responses
-- schedules
-- recent releases
-- episode information
+Sources com URLs temporárias devem possuir TTL apropriado.
 
-Utilize o sistema de cache existente do Anify quando apropriado.
+NÃO mantenha URLs temporárias indefinidamente.
 
-Não duplique sistemas desnecessariamente.
+============================================================
+33. SEGURANÇA DO PLAYER
+============================================================
 
-==================================================
-20. SCHEDULE
-==================================================
+O player incorporável deve possuir:
 
-Preserve:
+- CORS configurável;
+- CSP;
+- validação de origin;
+- tokens quando necessário;
+- expiração de tokens;
+- rate limiting;
+- proteção contra abuso;
+- validação de IDs;
+- proteção contra SSRF;
+- allowlist de hosts quando necessário.
 
-GET /schedule
+NÃO permita que qualquer usuário use a API como proxy arbitrário para qualquer URL.
 
-Expanda para suportar, quando os dados estiverem disponíveis:
+============================================================
+34. EMBED PARA SITES DE TERCEIROS
+============================================================
 
-- anime
-- TV series
-- episódios
-- datas de lançamento
-
-==================================================
-21. RECENT
-==================================================
-
-Preserve:
-
-GET /recent
-
-Permita categorias:
-
-- anime
-- tv
-- movies
-- manga
-- light-novel
+Criar documentação clara para desenvolvedores.
 
 Exemplo:
 
-GET /recent?type=anime
+<script>
+  const player = new ApolofyPlayer({
+      container: "#player",
+      type: "tv",
+      id: "123",
+      season: 1,
+      episode: 1
+  });
+</script>
 
-GET /recent?type=tv
+Ou:
 
-GET /recent?type=movie
+<iframe
+    src="https://api.apolofy.example/player/tv/123/season/1/episode/1"
+    allowfullscreen>
+</iframe>
 
-==================================================
-22. API VERSIONING
-==================================================
+A API deve gerar configurações seguras para o player.
 
-Não quebre os endpoints existentes sem necessidade.
+============================================================
+35. DOCUMENTAÇÃO DO PLAYER
+============================================================
 
-Utilize versionamento.
+Criar:
 
-Exemplo:
+PLAYER.md
+
+EMBED.md
+
+PLAYER-API.md
+
+PLAYER-REACT.md
+
+PLAYER-IFRAME.md
+
+Explicar:
+
+- instalação;
+- configuração;
+- iframe;
+- React;
+- JavaScript;
+- eventos;
+- callbacks;
+- troca de episódio;
+- qualidade;
+- legendas;
+- fullscreen;
+- Picture-in-Picture;
+- Cast;
+- autenticação;
+- segurança;
+- CORS.
+
+============================================================
+36. EVENTOS DO PLAYER
+============================================================
+
+Criar eventos como:
+
+onPlay
+
+onPause
+
+onEnded
+
+onTimeUpdate
+
+onProgress
+
+onVolumeChange
+
+onQualityChange
+
+onSubtitleChange
+
+onEpisodeChange
+
+onError
+
+onFullscreen
+
+onSourceChange
+
+Isso permitirá que o site do usuário controle o player.
+
+============================================================
+37. API DO PLAYER PARA O SITE DO USUÁRIO
+============================================================
+
+Permitir:
+
+player.play()
+
+player.pause()
+
+player.seek(120)
+
+player.setVolume(0.5)
+
+player.setQuality("1080p")
+
+player.setSubtitle("pt-BR")
+
+player.nextEpisode()
+
+player.previousEpisode()
+
+player.fullscreen()
+
+Os métodos devem funcionar de forma segura e documentada.
+
+============================================================
+38. API V1 E V2
+============================================================
+
+Preserve endpoints existentes do Anify sempre que possível.
+
+Crie uma API moderna:
 
 /api/v1/...
 
 /api/v2/...
 
-A versão v1 deve priorizar compatibilidade.
+A v2 deve possuir a arquitetura unificada da Apolofy.
 
-A v2 pode oferecer a arquitetura unificada da Apolofy.
+============================================================
+39. HEALTH
+============================================================
 
-==================================================
-23. DOCUMENTAÇÃO
-==================================================
-
-Crie documentação completa.
-
-Inclua:
-
-README.md
-
-ARCHITECTURE.md
-
-API.md
-
-PROVIDERS.md
-
-MAPPINGS.md
-
-METADATA.md
-
-DATABASE.md
-
-SOURCES.md
-
-DEVELOPMENT.md
-
-CONTRIBUTING.md
-
-LICENSE.md
-
-Documente:
-
-- instalação
-- configuração
-- variáveis de ambiente
-- banco
-- Redis/cache
-- providers
-- endpoints
-- autenticação, se houver
-- desenvolvimento
-- testes
-- deploy
-- Docker
-- produção
-
-Utilize OpenAPI/Swagger para documentar os endpoints.
-
-==================================================
-24. TESTES
-==================================================
-
-Crie testes:
-
-- unitários
-- integração
-- API
-- database
-- mappings
-- metadata
-- providers
-- search
-- seasons
-- episodes
-- movies
-- TV
-
-Crie testes de regressão para garantir que as funcionalidades herdadas do Anify continuem funcionando.
-
-==================================================
-25. SEGURANÇA
-==================================================
-
-Implemente:
-
-- validação de entrada
-- sanitização
-- rate limiting
-- CORS configurável
-- headers de segurança
-- proteção contra abuso
-- timeout
-- limites de payload
-- tratamento seguro de erros
-- secrets via environment variables
-- logs sem informações sensíveis
-
-Nunca coloque API keys diretamente no código.
-
-==================================================
-26. OBSERVABILIDADE
-==================================================
-
-Implemente:
-
-- logs estruturados
-- request ID
-- métricas
-- health endpoint
-- provider health
-- database health
-- cache health
-
-Endpoints:
+Preserve/crie:
 
 GET /health
 
@@ -861,375 +1239,614 @@ GET /health/providers
 
 GET /health/database
 
-==================================================
-27. PERFORMANCE
-==================================================
+GET /health/cache
 
-A API deve ser preparada para grande quantidade de requisições.
+GET /health/player
 
-Utilize:
+============================================================
+40. SEARCH
+============================================================
 
-- cache
-- índices
-- paginação
-- connection pooling
-- processamento assíncrono
-- filas quando necessário
-- concorrência controlada
-- deduplicação de requests
-- retries inteligentes
+Implementar:
 
-Não faça scraping de dezenas de providers simultaneamente sem limites.
+GET /search
 
-==================================================
-28. CRAWLING/SCRAPING
-==================================================
+GET /search/advanced
 
-Preserve o sistema de crawling/scraping do Anify onde apropriado.
+GET /search/anime
 
-Para novas integrações, crie adapters/providers independentes.
+GET /search/manga
 
-Todo crawler deve possuir:
+GET /search/light-novel
 
-- timeout
-- retry
-- rate limit
-- identificação clara do provider
-- logs
-- tratamento de erros
-- cache
-- respeito às políticas aplicáveis
-- respeito a robots.txt quando aplicável
-- respeito aos termos de uso e direitos autorais
+GET /search/movie
 
-Não implemente mecanismos destinados a contornar proteções de acesso.
+GET /search/tv
 
-==================================================
-29. CONFIGURAÇÃO
-==================================================
+A busca deve poder retornar resultados unificados.
 
-Crie:
+============================================================
+41. RECENT
+============================================================
 
-.env.example
+Preserve:
 
-Exemplo conceitual:
+GET /recent
 
-DATABASE_URL=
-REDIS_URL=
-API_PORT=
-API_HOST=
-NODE_ENV=
-LOG_LEVEL=
+Permita:
 
-Não coloque secrets reais.
+GET /recent?type=anime
 
-==================================================
-30. DOCKER
-==================================================
+GET /recent?type=tv
 
-Crie suporte para Docker.
+GET /recent?type=movie
 
-Inclua:
+============================================================
+42. SCHEDULE
+============================================================
+
+Preserve:
+
+GET /schedule
+
+Expanda para incluir quando disponível:
+
+- anime;
+- séries;
+- episódios;
+- datas;
+- temporada;
+- horário de lançamento.
+
+============================================================
+43. ARTWORK
+============================================================
+
+Crie um Artwork Manager.
+
+Prioridade:
+
+1. provider principal;
+2. provider secundário;
+3. fallback;
+4. cache.
+
+Não inventar artwork.
+
+Guardar:
+
+poster
+cover
+banner
+backdrop
+logo
+thumbnail
+
+============================================================
+44. CLASSIFICAÇÃO ETÁRIA
+============================================================
+
+Crie AgeRatingService.
+
+Deve suportar:
+
+Anime
+Movies
+TV
+Episodes quando disponível.
+
+Endpoint:
+
+GET /anime/:id/ratings
+
+GET /movie/:id/ratings
+
+GET /tv/:id/ratings
+
+GET /tv/:id/season/:season/episode/:episode/ratings
+
+============================================================
+45. CRAWLER
+============================================================
+
+Preserve o crawler existente.
+
+Crie novos crawlers somente quando necessário.
+
+O crawler deve poder atualizar:
+
+- filmes;
+- séries;
+- temporadas;
+- episódios;
+- anime;
+- artwork;
+- ratings;
+- mappings.
+
+Não faça crawling ilimitado sem controle.
+
+Implementar:
+
+- queue;
+- concurrency;
+- retry;
+- backoff;
+- rate limiting;
+- cache;
+- logs;
+- deduplicação.
+
+============================================================
+46. LEGALIDADE E SOURCES
+============================================================
+
+A Apolofy deve trabalhar com:
+
+- APIs públicas;
+- providers autorizados;
+- fontes licenciadas;
+- conteúdo fornecido pelo próprio usuário;
+- fontes cuja utilização seja permitida.
+
+Não implemente:
+
+- bypass de DRM;
+- quebra de autenticação;
+- invasão de contas;
+- contorno de paywalls;
+- evasão de mecanismos de proteção;
+- coleta de conteúdo sem autorização.
+
+O objetivo do SourceResolver é normalizar e entregar fontes que o sistema está autorizado a utilizar.
+
+============================================================
+47. TESTES
+============================================================
+
+Crie testes para:
+
+- Anime;
+- Manga;
+- Light Novel;
+- Movies;
+- TV;
+- Seasons;
+- Episodes;
+- Search;
+- Metadata;
+- Artwork;
+- Age Ratings;
+- Mappings;
+- Providers;
+- Sources;
+- Player;
+- iframe;
+- React component;
+- API;
+- Database;
+- Cache.
+
+Teste também:
+
+- source indisponível;
+- provider indisponível;
+- episódio inexistente;
+- temporada inexistente;
+- artwork inexistente;
+- rating inexistente;
+- timeout;
+- erro de rede.
+
+============================================================
+48. DOCKER
+============================================================
+
+Criar/atualizar:
 
 Dockerfile
 
 docker-compose.yml
 
-Serviços quando necessários:
+Serviços:
 
-- apolofy
-- PostgreSQL
-- Redis
+Apolofy API
+PostgreSQL
+Redis
 
-O ambiente deve permitir:
+Comando esperado:
 
 docker compose up -d
 
-==================================================
-31. CLI
-==================================================
+============================================================
+49. DOCUMENTAÇÃO
+============================================================
 
-Se o projeto original possuir CLI, preserve-o.
+Criar/atualizar:
 
-Adicione comandos úteis quando apropriado:
+README.md
+ARCHITECTURE.md
+API.md
+MOVIES.md
+TV.md
+ANIME.md
+MAPPINGS.md
+PROVIDERS.md
+SOURCES.md
+METADATA.md
+ARTWORK.md
+AGE-RATINGS.md
+PLAYER.md
+EMBED.md
+PLAYER-API.md
+DATABASE.md
+CACHE.md
+DOCKER.md
+DEVELOPMENT.md
+CONTRIBUTING.md
+LICENSE.md
 
-apolofy dev
+Utilizar OpenAPI/Swagger.
 
-apolofy start
+============================================================
+50. LICENÇA E CRÉDITOS
+============================================================
 
-apolofy migrate
+O projeto é derivado do Anify.
 
-apolofy seed
+Não remova os créditos e avisos exigidos pela licença.
 
-apolofy provider:list
+O Anify deve continuar sendo reconhecido como projeto-base.
 
-apolofy provider:health
+O novo projeto deve se chamar:
 
-apolofy cache:clear
+APOLOFY API
 
-==================================================
-32. REGRAS DE IMPLEMENTAÇÃO
-==================================================
+============================================================
+51. ESTRUTURA FINAL
+============================================================
 
-NÃO entregue apenas exemplos ou pseudocódigo.
+A arquitetura final deverá possuir conceitualmente:
 
-Você deve trabalhar no código real do projeto.
-
-Primeiro:
-
-1. clone/fork o Anify;
-2. examine sua arquitetura;
-3. identifique os módulos existentes;
-4. execute o projeto;
-5. execute os testes existentes;
-6. documente o estado inicial;
-7. somente depois comece as alterações.
-
-Não substitua módulos funcionais por mocks.
-
-Não crie endpoints falsos que retornem dados inventados.
-
-Se determinada funcionalidade não puder ser implementada por falta de um provider legítimo ou de uma fonte de dados, implemente a interface/arquitetura necessária e documente claramente o que falta.
-
-==================================================
-33. COMPATIBILIDADE
-==================================================
-
-Preserve o máximo possível:
-
-- endpoints
-- schemas
-- providers
-- mappings
-- database
-- configurações
-- testes
-
-Ao adicionar funcionalidades, prefira extensão sobre substituição.
-
-==================================================
-34. NOME E IDENTIDADE
-==================================================
-
-O nome do novo projeto é:
-
-apolofy
-
-Não chame o projeto de Anify depois da transformação, exceto quando estiver se referindo ao projeto original/base.
-
-No README, deixe claro:
-
-"Apolofy is a fork/derivative project based on Anify."
-
-Mantenha as atribuições e obrigações da licença do projeto original.
-
-Não remova créditos obrigatórios.
-
-==================================================
-35. ESTRUTURA FINAL ESPERADA
-==================================================
-
-A arquitetura final deverá conceitualmente possuir:
-
-Apolofy
+apolofy-api/
 │
-├── Anime
-│   ├── Seasons
-│   ├── Episodes
-│   ├── Metadata
-│   ├── Providers
-│   ├── Mappings
-│   └── Sources
+├── anify-backend/
 │
-├── Manga
-│   ├── Chapters
-│   ├── Metadata
-│   ├── Providers
-│   └── Mappings
+├── core/
+│   ├── anime/
+│   ├── manga/
+│   ├── light-novel/
+│   ├── mappings/
+│   ├── metadata/
+│   ├── providers/
+│   ├── crawlers/
+│   └── database/
 │
-├── Light Novels
-│   ├── Volumes
-│   ├── Metadata
-│   ├── Providers
-│   └── Mappings
+├── movies/
 │
-├── Movies
-│   ├── Metadata
-│   ├── Collections
-│   ├── Franchises
-│   ├── Providers
-│   ├── Mappings
-│   └── Sources
+├── tv/
+│   ├── series/
+│   ├── seasons/
+│   └── episodes/
 │
-├── TV Series
-│   ├── Seasons
-│   ├── Episodes
-│   ├── Metadata
-│   ├── Providers
-│   ├── Mappings
-│   └── Sources
+├── artwork/
 │
-├── Search
-├── Metadata Engine
-├── Mapping Engine
-├── Provider Manager
-├── Source Resolver
-├── Crawler Engine
-├── Scraper Engine
-├── Database
-├── Cache
-├── API
-├── CLI
-├── Docker
-└── Documentation
+├── age-ratings/
+│
+├── sources/
+│
+├── player/
+│   ├── core/
+│   ├── ui/
+│   ├── controls/
+│   ├── hls/
+│   ├── subtitles/
+│   ├── quality/
+│   ├── fullscreen/
+│   ├── cast/
+│   ├── iframe/
+│   └── react/
+│
+├── search/
+├── cache/
+├── database/
+├── api/
+├── tests/
+├── docs/
+└── docker/
 
-==================================================
-36. RESULTADO FINAL
-==================================================
+IMPORTANTE:
 
-O resultado final deve ser uma API funcional chamada:
+Essa é uma estrutura conceitual.
 
-Apolofy
+Adapte-a à estrutura REAL do Anify.
 
-Ela deve combinar:
+Não duplique diretórios se o Anify já possui módulos equivalentes.
 
-ANIFY
-+
-MOVIES
-+
-TV SERIES
-+
-SEASONS
-+
-EPISODES
-+
-METADATA
-+
-MAPPINGS
-+
-PROVIDERS
-+
-SEARCH
-+
-SOURCES AUTORIZADAS
-+
-DATABASE
-+
-CACHE
-
-O sistema deve ser modular, escalável, testável, documentado e preparado para produção.
-
-==================================================
-37. ORDEM DE EXECUÇÃO
-==================================================
-
-Execute o trabalho nesta ordem:
+============================================================
+52. ORDEM OBRIGATÓRIA DE EXECUÇÃO
+============================================================
 
 FASE 1
-Clonar/forkar o Anify.
+Identificar o diretório atual.
 
 FASE 2
-Auditar a arquitetura existente.
+Identificar o Anify já clonado.
 
 FASE 3
-Executar e validar o projeto original.
+Executar git status.
 
 FASE 4
-Criar branch:
-
-feature/apolofy
+Auditar completamente o projeto.
 
 FASE 5
-Criar arquitetura de Movies.
+Executar o backend original.
 
 FASE 6
-Criar arquitetura de TV Series.
+Executar lint/build/testes.
 
 FASE 7
-Criar Seasons.
+Estudar especificamente o sistema de providers, mappings, episódios e sources.
 
 FASE 8
-Criar Episodes.
+Documentar internamente como o Anify funciona.
 
 FASE 9
-Criar Movie Collections/Franchises.
+Criar a base da Apolofy.
 
 FASE 10
-Expandir Metadata Engine.
+Adicionar Movies.
 
 FASE 11
-Expandir Mapping Engine.
+Adicionar TV Series.
 
 FASE 12
-Expandir Provider Manager.
+Adicionar Seasons.
 
 FASE 13
-Expandir SourceResolver com fontes autorizadas.
+Adicionar Episodes.
 
 FASE 14
-Expandir Search.
+Expandir Anime Seasons/Episodes.
 
 FASE 15
-Expandir Database.
+Adicionar Movie Collections/Franchises.
 
 FASE 16
-Implementar Cache.
+Expandir Metadata.
 
 FASE 17
-Implementar testes.
+Adicionar Artwork.
 
 FASE 18
-Implementar Docker.
+Adicionar Age Ratings.
 
 FASE 19
-Implementar documentação.
+Expandir Mapping Engine.
 
 FASE 20
-Executar todos os testes.
+Expandir Provider Manager.
 
 FASE 21
-Corrigir todos os erros.
+Criar SourceResolver para fontes autorizadas.
 
 FASE 22
-Executar build de produção.
+Criar Apolofy Video Player.
 
 FASE 23
-Validar todos os endpoints.
+Reproduzir o design visual da imagem fornecida.
 
 FASE 24
+Criar iframe embed.
+
+FASE 25
+Criar React component.
+
+FASE 26
+Criar JavaScript SDK do player quando apropriado.
+
+FASE 27
+Criar API de integração do player.
+
+FASE 28
+Criar documentação de integração.
+
+FASE 29
+Criar testes.
+
+FASE 30
+Criar Docker.
+
+FASE 31
+Executar build.
+
+FASE 32
+Executar testes.
+
+FASE 33
+Corrigir erros.
+
+FASE 34
+Testar player.
+
+FASE 35
+Testar integração iframe.
+
+FASE 36
+Testar integração React.
+
+FASE 37
+Validar API.
+
+FASE 38
 Gerar relatório final.
 
-==================================================
-38. RELATÓRIO FINAL OBRIGATÓRIO
-==================================================
+============================================================
+53. RESULTADO FINAL ESPERADO
+============================================================
 
-Ao terminar, informe:
+O resultado final deve ser:
 
-1. O que foi herdado do Anify.
-2. O que foi adicionado pela Apolofy.
-3. Estrutura final do projeto.
-4. Todos os endpoints.
-5. Banco de dados.
-6. Providers implementados.
-7. Providers que ainda precisam ser implementados.
-8. Sistema de mappings.
-9. Sistema de metadata.
-10. Sistema de seasons.
-11. Sistema de episodes.
-12. Sistema de movies.
-13. Sistema de TV.
-14. Sistema de sources.
-15. Sistema de cache.
-16. Testes executados.
-17. Resultado do build.
-18. Como executar localmente.
-19. Como executar com Docker.
-20. Variáveis de ambiente.
-21. Limitações conhecidas.
-22. Próximos passos.
+APOLOFY API
 
-NÃO pare depois de criar apenas a estrutura.
+Uma API baseada na arquitetura do Anify, mas expandida para:
 
-Implemente o máximo possível no código real, valide tudo e só então apresente o relatório final.
+✓ Anime
+✓ Mangá
+✓ Light Novel
+✓ Filmes
+✓ Séries
+✓ Temporadas
+✓ Episódios
+✓ Coleções
+✓ Franquias
+✓ Metadata
+✓ Mappings
+✓ Providers
+✓ Sources autorizadas
+✓ Capas
+✓ Banners
+✓ Backdrops
+✓ Classificações etárias
+✓ Search
+✓ Recent
+✓ Schedule
+✓ Cache
+✓ Database
+✓ Player de vídeo
+✓ Iframe embed
+✓ React Player
+✓ JavaScript Player API
+
+============================================================
+54. EXPERIÊNCIA FINAL DO USUÁRIO DO SITE
+============================================================
+
+O objetivo final é permitir que um desenvolvedor faça:
+
+1. Configure a Apolofy API no próprio site.
+
+2. O site pesquisa:
+
+"Nome do Filme"
+
+ou:
+
+"Nome da Série"
+
+ou:
+
+"Nome do Anime"
+
+3. O site recebe os dados da Apolofy.
+
+4. O site recebe:
+
+- poster;
+- banner;
+- metadata;
+- classificação;
+- temporadas;
+- episódios;
+- sources autorizadas.
+
+5. O visitante seleciona:
+
+ASSISTIR
+
+6. O site abre:
+
+APOLOFY PLAYER
+
+7. O player mostra a interface visual equivalente à imagem fornecida.
+
+8. O player recebe a source através da API.
+
+9. O visitante consegue:
+
+- assistir;
+- pausar;
+- avançar;
+- voltar;
+- alterar volume;
+- alterar qualidade;
+- escolher legenda;
+- fullscreen;
+- Picture-in-Picture;
+- Cast quando suportado;
+- trocar episódio;
+- ir para próximo episódio.
+
+10. Ao terminar um episódio:
+
+PRÓXIMO EPISÓDIO
+
+11. O player consulta a Apolofy novamente e carrega o próximo episódio.
+
+============================================================
+55. NÃO ENTREGAR UM MOCK
+============================================================
+
+NÃO crie somente:
+
+- telas falsas;
+- JSON falso;
+- endpoints que retornam dados estáticos;
+- providers simulados;
+- player que não reproduz uma source real autorizada;
+- seasons fictícias;
+- episódios inventados.
+
+Implemente código funcional.
+
+Se determinada integração não puder ser implementada porque não existe uma fonte/API autorizada disponível, crie a interface real do provider e documente claramente:
+
+"Provider não configurado/disponível."
+
+NÃO invente dados.
+
+============================================================
+56. REGRA FINAL
+============================================================
 
 COMECE AGORA.
+
+Você já possui o repositório Anify no diretório atual.
+
+NÃO clone novamente.
+
+NÃO comece criando outro projeto do zero.
+
+Primeiro descubra exatamente o estado atual do diretório.
+
+Depois estude o Anify.
+
+Depois implemente a Apolofy incrementalmente.
+
+Depois valide.
+
+Depois teste.
+
+Depois corrija.
+
+Depois documente.
+
+Somente no final apresente o relatório completo da implementação.
+
+A prioridade máxima é:
+
+1. preservar o Anify funcional;
+2. adicionar Movies;
+3. adicionar TV Series;
+4. adicionar Seasons;
+5. adicionar Episodes;
+6. expandir Anime;
+7. adicionar Metadata;
+8. adicionar Artwork;
+9. adicionar Age Ratings;
+10. adicionar Sources autorizadas;
+11. criar o Apolofy Player;
+12. tornar o Player incorporável em sites externos;
+13. testar tudo.
+
+COMECE PELO DIRETÓRIO ATUAL.
